@@ -9,7 +9,7 @@
 <body>
 <%
 	Integer cnt = (Integer) session.getAttribute("cnt");
-	If(cnt == null) {
+	if(cnt == null) {
 		out.println("최초 호출");
 		cnt = 0;
 	}
