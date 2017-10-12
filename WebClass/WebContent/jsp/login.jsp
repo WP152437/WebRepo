@@ -34,12 +34,12 @@
 
 <script>
 	<%-- 로그인이 실패한 경우 처리 추가 --%>
-	<%--
-		var myModal = $('#myModal');
-		myModal.find('.modal-title').text('Login Error');
-		myModal.find('.modal-body').text('Invalid username or password');
-		myModal.modal();
-	--%>
+	<%if("error".equals(request.getAttribute("msg"))){%>
+	 var myModal = $('#myModal');
+     myModal.find('.modal-title').text('Login Error');
+     myModal.find('.modal-body').text('Invalid username or password');
+     myModal.modal();
+	<%}%>
 </script>
 
 </body>

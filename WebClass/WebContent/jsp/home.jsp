@@ -49,11 +49,9 @@ div.container {
 				UserVO user = (UserVO) session.getAttribute("user");
 				if (user == null) {
 			%>
-			<a class="text-bold text-white" style="text-decoration: none"
-				href="/webClass/login" method="post">Sign in</a> <span
-				class="text-bold text-white">&nbsp; or &nbsp;</span> <a
-				class="text-bold text-white" style="text-decoration: none" href="">Sign
-				up</a>
+			<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/login" method="post">Sign in</a>
+			<span class="text-bold text-white">&nbsp; or &nbsp;</span>
+			<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/signup" method="post">Sign up</a>
 			<%
 				} else {
 			%>
@@ -62,7 +60,8 @@ div.container {
 				<li class="nav-item dropdown"><a
 					class="nav-item nav-link dropdown-toggle mr-md-2" href="#"
 					id="bd-versions" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <%=user.getName() + "님"%> </a>
+					aria-expanded="false"> <%=user.getName() + "님"%>
+				</a>
 					<div class="dropdown-menu dropdown-menu-right"
 						aria-labelledby="bd-versions">
 						<button type="submit" class="dropdown-item">Sign out</button>

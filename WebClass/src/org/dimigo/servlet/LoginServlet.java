@@ -18,7 +18,7 @@ import org.dimigo.vo.UserVO;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -41,8 +41,7 @@ public class LoginServlet extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
@@ -64,6 +63,11 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("user", user);
 			RequestDispatcher rd = request.getRequestDispatcher("/WebClass/jsp/home.jsp");
 			rd.forward(request, response);
+		}else {
+			request.setAttribute("msg","arg");
+			RequestDispatcher rd = request.getRequestDispatcher("/jsp/login.jsp");   
+	        rd.forward(request,response);
+
 		}
 	}
 }

@@ -39,12 +39,17 @@
 
 <script>
 	<%-- 회원 가입이 실패한 경우 처리 추가 --%>
-	<%--
+	<%if("error".equals(request.getAttribute("err"))){%>
 		var myModal = $('#myModal');
 		myModal.find('.modal-title').text('Sign Up Error');
 		myModal.find('.modal-body').text('회원 가입 시 오류가 발생하였습니다.');
 		myModal.modal();
-	--%>
+		
+		$('#inputEmail').val("<%=request.getParameter("id")%>")
+		$('#inputPassword').val("<%=request.getParameter("pwd")%>")
+		$('#inputName').val("<%=request.getParameter("name")%>")
+		$('#inputNickName').val("<%=request.getParameter("nickname")%>")
+	<%}%>
 </script>
 
 </body>

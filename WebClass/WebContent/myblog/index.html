@@ -11,11 +11,11 @@
 <title>MY BLOG</title>
 
 <!-- Bootstrap core CSS -->
-<link href="./myblog/css/bootstrap.css" rel="stylesheet">
+<link href="./css/bootstrap.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="./myblog/css/style.css" rel="stylesheet">
-<link href="./myblog/css/font-awesome.min.css" rel="stylesheet">
+<link href="./css/style.css" rel="stylesheet">
+<link href="./css/font-awesome.min.css" rel="stylesheet">
 
 <!-- Just for debugging purposes. Don't actually copy this line! -->
 <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -175,27 +175,27 @@
 
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
 				<a href="work.html"><img
-					src="./myblog/img/portfolio/folio01.png" class="img-responsive"></a>
+					src="./img/portfolio/folio01.png" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
 				<a href="work.html"><img
-					src="./myblog/img/portfolio/folio02.jpg" class="img-responsive"></a>
+					src="./img/portfolio/folio02.jpg" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
 				<a href="work.html"><img
-					src="./myblog/img/portfolio/folio03.png" class="img-responsive"></a>
+					src="./img/portfolio/folio03.png" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
 				<a href="work.html"><img
-					src="./myblog/img/portfolio/folio04.png" class="img-responsive"></a>
+					src="./img/portfolio/folio04.png" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
 				<a href="work.html"><img
-					src="./myblog/img/portfolio/folio05.png" class="img-responsive"></a>
+					src="./img/portfolio/folio05.png" class="img-responsive"></a>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
 				<a href="work.html"><img
-					src="./myblog/img/portfolio/folio06.png" class="img-responsive"></a>
+					src="./img/portfolio/folio06.png" class="img-responsive"></a>
 			</div>
 		</div>
 		<!--/row -->
@@ -241,10 +241,42 @@
 		crossorigin="anonymous"></script>
 
 	<script>
+		function login() {
+			var loginModal = $('#loginModal');
+			loginModal.modal();
+			
+		}
+	</script>
+	<script>
+		$(document).ready(
+				function() {
+					$('#loginForm').submit(
+							function(event) {
+
+								event.preventDefault();
+								var id = $('#id').val();
+
+								$.post("http://httpbin.org/post", {
+									id : id
+								}, function(data) {
+									var thisModal =$('#myModal');
+									thisModal.modal('hide');
+									var myModal = $('#myModal');
+									myModal.modal();
+									myModal.find('.modal-body').text(
+											data.form.id + '님 로그인 되었습니다.');
+
+								});
+							});
+				});
+	</script>
+	
+	
+	<script>
 		function join() {
-			console.log('start');
 			var joinModal = $('#joinModal');
 			joinModal.modal();
+			
 		}
 	</script>
 	<script>
@@ -254,7 +286,6 @@
 							function(event) {
 
 								event.preventDefault();
-console.log("dfs");
 								var id = $('#name').val();
 
 								$.post("http://httpbin.org/post", {
